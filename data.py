@@ -6,3 +6,9 @@ cursor.execute(SQL)
 data=cursor.fetchall()
 for rows in data:
     print rows
+    
+    # if you want in json format then follow below step
+import json
+json_output=json.dumps(data)
+print(json_output)
+    
