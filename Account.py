@@ -1,30 +1,27 @@
 # First i am defining a class Account
 class Account(object):
-    def __init__(self,Account_Holder_Name,Account_Number,Account_Balance,Credit_line=2500):
-        self.holder=Account_Holder_Name
-        self.number=Account_Number
-        self.balance=Account_Balance
-        self.credit=Credit_line
+    def __init__(self):
+       self.balance=0
 
     def  Deposit(self,amount):
-        self.balance=amount
+        self.balance +=amount
+        return self.balance
 
     def withdraw(self,amount):
-        if (self.balance-amount<-self.credit):
-            return False
+        if ((self.balance-amount)<0):
+            return "You Entered balanced is not Vaild"
         else:
             self.balance -=amount
-            return True
+            return self.balance
         
 
     def balance(self):
         return self.balance
 
-    def transfer(self,target,amount):
-        if (self.balance-amount<-self.credit):
-            return False
+    def transfer(self,amount):
+        if ((self.balance-amount)<0):
+            return 'You Cant Transfer Money You balance low'
         else:
             self.balance -=amount
-            target.balance +=amount
-            return True
+            return "Transaction is sucessfull Now Your Main Balance:" ,self.balance
         
